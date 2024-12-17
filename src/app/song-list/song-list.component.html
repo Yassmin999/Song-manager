@@ -1,0 +1,39 @@
+<div class="navbar">
+  <h1 class="navbar-title">Your Playlist</h1>
+  <div class="search-container">
+    <input
+      type="text"
+      [(ngModel)]="searchQry"
+      placeholder="Search songs..."
+      class="search-input"
+    />
+  </div>
+  <button class="add-song-button" (click)="addSong()">Add Song</button>
+  <button class="logout-button" (click)="logout()">Logout</button>
+</div>
+
+<div class="song-list-container">
+  <div class="song-cards">
+    <div *ngFor="let song of filteredSongs" class="song-card">
+      <img [src]="song.imageUrl" alt="{{ song.title }}" class="song-image" />
+      <div class="song-details">
+        <h3 class="song-title">{{ song.title }}</h3>
+        <p class="song-artist">{{ song.artist }}</p>
+        <p class="song-genre">{{ song.genre }}</p>
+        <p class="song-duration">Duration: {{ song.formattedDuration }}</p>
+
+        <audio controls>
+          <source [src]="song.audioUrl" type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+
+        <div class="button-group">
+          <button class="edit-button" (click)="editSong(song.id)">Edit</button>
+          <button class="delete-button" (click)="deleteSong(song.id)">
+            Delete
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

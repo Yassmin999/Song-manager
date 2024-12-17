@@ -1,0 +1,76 @@
+<h2>{{ formTitle }}</h2>
+<form [formGroup]="songForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="title">Title:</label>
+    <input id="title" formControlName="title" />
+    <div
+      *ngIf="formControls['title'].touched && formControls['title'].invalid"
+      class="error"
+    >
+      Title is required.
+    </div>
+  </div>
+
+  <div>
+    <label for="artist">Artist:</label>
+    <input id="artist" formControlName="artist" />
+    <div
+      *ngIf="formControls['artist'].touched && formControls['artist'].invalid"
+      class="error"
+    >
+      Artist is required.
+    </div>
+  </div>
+
+  <div>
+    <label for="genre">Genre:</label>
+    <input id="genre" formControlName="genre" />
+    <div
+      *ngIf="formControls['genre'].touched && formControls['genre'].invalid"
+      class="error"
+    >
+      Genre is required.
+    </div>
+  </div>
+
+  <div>
+    <label for="duration">Duration:</label>
+    <input id="duration" formControlName="duration" type="number" />
+    <div
+      *ngIf="
+        formControls['duration'].touched && formControls['duration'].invalid
+      "
+      class="error"
+    >
+      Duration is required.
+    </div>
+  </div>
+
+  <div>
+    <label for="audioUrl">Audio URL:</label>
+    <input id="audioUrl" formControlName="audioUrl" />
+    <div
+      *ngIf="
+        formControls['audioUrl'].touched && formControls['audioUrl'].invalid
+      "
+      class="error"
+    >
+      Audio URL is required.
+    </div>
+  </div>
+
+  <div>
+    <label for="imageUrl">Image URL:</label>
+    <input id="imageUrl" formControlName="imageUrl" />
+    <div
+      *ngIf="
+        formControls['imageUrl'].touched && formControls['imageUrl'].invalid
+      "
+      class="error"
+    >
+      Image URL is required.
+    </div>
+  </div>
+
+  <button type="submit">{{ buttonLabel }}</button>
+</form>
